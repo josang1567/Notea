@@ -1,0 +1,57 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      Notas
+    </ion-title>
+    <ion-buttons slot="secondary">
+      <ion-button fill="outline" (click)="logout()">
+        <ion-icon name="caret-down-circle-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" color="medium">
+
+  <ion-refresher slot="fixed" (ionRefresh)="cargaNotas($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list > 
+    <ion-searchbar></ion-searchbar>
+
+    <ion-item-sliding *ngFor="let nota of notas;let i=index">
+      <ion-item-options side="start">
+        <ion-item-option color="primary" (click)="edita(nota)">
+          <ion-icon name="create" style="zoom:3.0"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+  
+      <ion-item >
+        <ion-label >
+          <h2>{{nota.title}}</h2>
+          <p>
+            {{nota.description}}
+          </p>
+        </ion-label>
+      </ion-item>
+  
+      <ion-item-options side="end">
+        <ion-item-option color="danger" expandable (click)="Alert(nota)">
+          <ion-icon name="remove-circle" style="zoom:3.0"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+
+   
+  </ion-list>
+
+
+
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="cargaInfinita($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

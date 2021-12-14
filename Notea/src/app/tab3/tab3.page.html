@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      {{'CONTACT' | translate | titlecase}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item>
+    <ion-label>ES</ion-label>
+    <ion-toggle #mitoogle color="light" (ionChange)="cambiaIdioma($event)"></ion-toggle>
+    <ion-label>EN</ion-label>
+  </ion-item>
+
+  <ion-button expand="block" (click)="hazFoto()">
+    {{'TAKE A PICTURE' | translate}}
+    <ion-icon name="camera"></ion-icon>
+  </ion-button>
+  
+  <ion-img *ngIf="this.image" [src]="this.image" style="zoom: 0,5;"></ion-img>
+
+
+  
+  <form [formGroup]="formNota" >
+    <ion-item>
+      <ion-label>Título</ion-label>
+      <ion-input type="text" formControlName="title"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label >Descripción</ion-label>
+      <ion-input type="text"  formControlName="description"> </ion-input>
+    </ion-item>
+    <ion-button expand="full" color="primary" 
+      (click)="addNote()" [disabled]="this.formNota.invalid">Agregar</ion-button>
+  </form>
+
+ 
+
+
+</ion-content>

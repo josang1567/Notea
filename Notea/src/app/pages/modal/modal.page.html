@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>modal</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="medium tint">
+  <ion-button (click)="close()" shape="round" color="danger">  X</ion-button>
+
+  <form [formGroup]="formNota" >
+    <ion-item>
+      <ion-label>Título</ion-label>
+      <ion-input type="text" formControlName="title"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Descripción</ion-label>
+      <ion-textarea formControlName="description"></ion-textarea>
+    </ion-item>
+
+    <ion-button expand="full" color="primary" (click)="updateNote()" 
+  type="submit" [disabled]="this.formNota.invalid">Agregar</ion-button>
+  </form>
+
+
+</ion-content>
