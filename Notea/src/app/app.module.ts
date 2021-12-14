@@ -18,6 +18,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { LocalStorageService } from './services/local-storage.service';
 import { AuthService } from './services/auth.service';
 import { AuthguardService } from './services/authguard.service';
+import { PipesModule } from './pipes/pipes.module';
 
 
 export function loadTranslator(http: HttpClient) {
@@ -42,7 +43,8 @@ export function loadTranslator(http: HttpClient) {
         deps: [HttpClient]
       }
     }),ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    PipesModule
 
   ],
 

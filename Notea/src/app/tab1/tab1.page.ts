@@ -20,7 +20,7 @@ export class Tab1Page {
 
   public notas:Note[]=[];
   private miLoading:HTMLIonLoadingElement;
-
+  public textobuscar='';
   constructor(private ns:NoteService,
     private loading:LoadingController,
     private toast:ToastController,
@@ -131,4 +131,12 @@ export class Tab1Page {
 
     await alert.present();
   }
+
+
+  // buscar
+
+  async buscar(event ){ 
+    this.textobuscar=event.detail.value;
+  }
+
 }

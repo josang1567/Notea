@@ -30,8 +30,8 @@ export class Tab3Page {
               private loading:LoadingController,
               private toast:ToastController)
    {
-    traductor.setDefaultLang("en");
-    traductor.use("en");
+    traductor.setDefaultLang("es");
+    traductor.use("es");
     traductor.get("TAKE A PICTURE").toPromise().then(data => {
       console.log(data);
     });

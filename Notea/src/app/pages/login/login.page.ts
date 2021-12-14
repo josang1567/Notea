@@ -29,14 +29,13 @@ private isAndroid:boolean;
   }
   public async signin(){
     try {
-      console.log("hola");
 
       let user:User= await GoogleAuth.signIn();
       this.userinfo=user;
       this.authS.user=user;
       this.router.navigate(['private/tabs/tab1']);
     } catch (err) {
-      console.log("dddd");
+     
       console.error(err);
     }
   }

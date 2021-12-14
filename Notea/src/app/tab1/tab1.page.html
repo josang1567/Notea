@@ -5,7 +5,7 @@
     </ion-title>
     <ion-buttons slot="secondary">
       <ion-button fill="outline" (click)="logout()">
-        <ion-icon name="caret-down-circle-outline"></ion-icon>
+        <ion-icon name="exit"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
@@ -18,9 +18,9 @@
   </ion-refresher>
 
   <ion-list > 
-    <ion-searchbar></ion-searchbar>
+    <ion-searchbar animated (ionChange)="buscar($event)" ></ion-searchbar>
 
-    <ion-item-sliding *ngFor="let nota of notas;let i=index">
+    <ion-item-sliding *ngFor="let nota of notas | filtro: textobuscar ;let i=index">
       <ion-item-options side="start">
         <ion-item-option color="primary" (click)="edita(nota)">
           <ion-icon name="create" style="zoom:3.0"></ion-icon>
@@ -28,7 +28,7 @@
       </ion-item-options>
   
       <ion-item >
-        <ion-label >
+        <ion-label>
           <h2>{{nota.title}}</h2>
           <p>
             {{nota.description}}
